@@ -1,0 +1,27 @@
+{
+  "name": "fetch-client",
+  "version": "1.0.0",
+  "description": "An opinionated REST API client",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": "git@github.com:TimBest/fetch-client.git",
+  "author": "Tim Best fetch-client@timothy.best",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "yarn install && rm -rf dist && rollup -c",
+    "lint": "yarn install && tslint --config tslint.json src/**/*.ts{,x}",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-typescript": "^7.3.3",
+    "@types/jest": "^24.0.17",
+    "babel-jest": "^24.8.0",
+    "jest": "^24.8.0",
+    "rollup-plugin-typescript2": "^0.22.1",
+    "tslint": "^5.18.0",
+    "typescript": "^3.5.3"
+  }
+}
