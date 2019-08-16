@@ -6,7 +6,8 @@
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "lib": ["es7", "dom"],
-    "declaration": true
+    "declaration": true,
+    "target": "es2015"
   },
   "exclude": ["**/*.test.ts"]
 }

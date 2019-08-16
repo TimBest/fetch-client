@@ -1,6 +1,6 @@
 {
   "name": "fetch-client",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "An opinionated REST API client",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -23,5 +23,9 @@
     "rollup-plugin-typescript2": "^0.22.1",
     "tslint": "^5.18.0",
     "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "es6-error": "^4.1.1",
+    "query-string": "^6.8.2"
   }
 }
