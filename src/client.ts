@@ -45,6 +45,8 @@ class ApiClient {
     "Content-Type": "application/json",
   } as any as Headers;
 
+  protected credentials: RequestCredentials = "same-origin";
+
   protected getBaseUrl(params?: Params): URL {
     const url = new window.URL(window.location.origin);
     url.search = queryString.stringify(params || {});
@@ -63,7 +65,7 @@ class ApiClient {
           method,
           headers: headers ? headers : this.defaultHeaders,
           body: JSON.stringify(data),
-          credentials: ("same-origin" as RequestCredentials),
+          credentials: this.credentials,
         });
 
       if (response.ok) {

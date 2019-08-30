@@ -54,6 +54,7 @@ class ApiClient {
             Accept: "application/json",
             "Content-Type": "application/json",
         };
+        this.credentials = "same-origin";
     }
     getBaseUrl(params) {
         const url = new window.URL(window.location.origin);
@@ -67,7 +68,7 @@ class ApiClient {
                     method,
                     headers: headers ? headers : this.defaultHeaders,
                     body: JSON.stringify(data),
-                    credentials: "same-origin",
+                    credentials: this.credentials,
                 });
                 if (response.ok) {
                     return {

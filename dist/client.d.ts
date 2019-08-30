@@ -32,6 +32,7 @@ interface ApiResponseFailure<Failure> {
 }
 declare class ApiClient {
     protected defaultHeaders: Headers;
+    protected credentials: RequestCredentials;
     protected getBaseUrl(params?: Params): URL;
     request(method: RequestMethod, url: URL, headers?: Headers, data?: JsonObject): Promise<ApiResponse<Response, JsonObject>>;
     private getJsonSuccessPayloadOrDefault;
