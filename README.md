@@ -2,7 +2,6 @@
 
 [![CircleCI](https://circleci.com/gh/TimBest/fetch-client.svg?style=svg)](https://circleci.com/gh/TimBest/fetch-client)
 
-
 ## Example
 
 ### Configure API
@@ -13,6 +12,7 @@ import { FetchClient, getDocumentCsrfToken} from "fetch-client";
 class ClientBase extends FetchClient {
   constructor() {
     this.defaultHeaders["X-CSRF-Token"] = getDocumentCsrfToken()
+    this.credentials = "omit"
   }
 }
 
@@ -108,4 +108,11 @@ async function createFoo(foo: Foo) {
 }
 
 createFoo({bar: 1})
+```
+
+## Contributing
+
+### Setup
+```bash
+yarn add -g rollup
 ```
