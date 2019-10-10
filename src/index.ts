@@ -1,4 +1,4 @@
-import FetchClient from "./client";
+import * as FetchClient from "./client";
 import { getDocumentCsrfToken } from "./document";
 import { ApiResponseError } from "./ApiResponseError";
 

@@ -1,12 +1,12 @@
 import { ApiResponseError } from "./ApiResponseError";
-interface JsonObject {
+export interface JsonObject {
     [key: string]: any;
 }
-declare type RequestMethod = "GET" | "PUT" | "POST" | "DELETE";
-interface Params {
+export declare type RequestMethod = "GET" | "PUT" | "POST" | "DELETE";
+export interface Params {
     [key: string]: string;
 }
-interface ApiSuccess<Success> {
+export interface ApiSuccess<Success> {
     succeeded: true;
     /**
      * Contains the success response of the API request. Can be null for some
@@ -14,23 +14,23 @@ interface ApiSuccess<Success> {
      */
     payload: Success;
 }
-interface ApiNetworkFailure {
+export interface ApiNetworkFailure {
     succeeded: false;
     responseReceived: false;
     networkError: ApiNetworkError;
 }
-interface ApiNetworkError {
+export interface ApiNetworkError {
     message: string;
     error: Error;
 }
-declare type ApiResponse<Success, Failure> = ApiSuccess<Success> | ApiFailure<Failure>;
-declare type ApiFailure<Failure> = ApiResponseFailure<Failure> | ApiNetworkFailure;
-interface ApiResponseFailure<Failure> {
+export declare type ApiResponse<Success, Failure> = ApiSuccess<Success> | ApiFailure<Failure>;
+export declare type ApiFailure<Failure> = ApiResponseFailure<Failure> | ApiNetworkFailure;
+export interface ApiResponseFailure<Failure> {
     succeeded: false;
     responseReceived: true;
     responseError: ApiResponseError<Failure>;
 }
-declare class ApiClient {
+export declare class Client {
     protected defaultHeaders: Headers;
     protected credentials: RequestCredentials;
     protected getBaseUrl(params?: Params): URL;
@@ -44,4 +44,3 @@ declare class ApiClient {
         payload: any;
     }>;
 }
-export default ApiClient;

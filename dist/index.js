@@ -48,7 +48,7 @@ class ApiResponseError extends ExtendableError {
     }
 }
 
-class ApiClient {
+class Client {
     constructor() {
         this.defaultHeaders = {
             Accept: "application/json",
@@ -162,10 +162,14 @@ class ApiClient {
     }
 }
 
+var client = /*#__PURE__*/Object.freeze({
+    Client: Client
+});
+
 function getDocumentCsrfToken() {
     return document.querySelectorAll('meta[name="csrf-token"]')[0].content;
 }
 
 exports.ApiResponseError = ApiResponseError;
-exports.FetchClient = ApiClient;
+exports.FetchClient = client;
 exports.getDocumentCsrfToken = getDocumentCsrfToken;
