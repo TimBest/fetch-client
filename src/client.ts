@@ -1,15 +1,15 @@
 import { ApiResponseError } from "./ApiResponseError";
 import * as queryString from "query-string";
 
-interface JsonObject {[key: string]: any; }
+export interface JsonObject {[key: string]: any; }
 
-type RequestMethod = "GET" | "PUT" | "POST" | "DELETE";
+export type RequestMethod = "GET" | "PUT" | "POST" | "DELETE";
 
-interface Params {
+export interface Params {
   [key: string]: string;
 }
 
-interface ApiSuccess<Success> {
+export interface ApiSuccess<Success> {
   succeeded: true;
   /**
    * Contains the success response of the API request. Can be null for some
@@ -18,28 +18,28 @@ interface ApiSuccess<Success> {
   payload: Success;
 }
 
-interface ApiNetworkFailure {
+export interface ApiNetworkFailure {
   succeeded: false;
   responseReceived: false;
   networkError: ApiNetworkError;
 }
 
-interface ApiNetworkError {
+export interface ApiNetworkError {
   message: string;
   error: Error;
 }
 
-type ApiResponse<Success, Failure> = ApiSuccess<Success> | ApiFailure<Failure>;
+export type ApiResponse<Success, Failure> = ApiSuccess<Success> | ApiFailure<Failure>;
 
-type ApiFailure<Failure> = ApiResponseFailure<Failure> | ApiNetworkFailure;
+export type ApiFailure<Failure> = ApiResponseFailure<Failure> | ApiNetworkFailure;
 
-interface ApiResponseFailure<Failure> {
+export interface ApiResponseFailure<Failure> {
   succeeded: false;
   responseReceived: true;
   responseError: ApiResponseError<Failure>;
 }
 
-class ApiClient {
+export class Client {
   protected defaultHeaders: Headers = {
     Accept: "application/json",
     "Content-Type": "application/json",
@@ -171,5 +171,3 @@ class ApiClient {
     return response as any as Promise<ApiResponse<null, JsonObject>>;
   }
 }
-
-export default ApiClient;
