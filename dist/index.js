@@ -61,6 +61,9 @@ class Client {
         url.search = queryString.stringify(params || {});
         return url;
     }
+    getResponseError(response) {
+        return new ApiResponseError(response);
+    }
     request(method, url, headers, data) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
@@ -79,7 +82,7 @@ class Client {
                 return {
                     succeeded: false,
                     responseReceived: true,
-                    responseError: new ApiResponseError(response),
+                    responseError: this.getResponseError(response),
                 };
             }
             catch (err) {

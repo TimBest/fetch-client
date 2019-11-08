@@ -53,6 +53,10 @@ export class Client {
     return url;
   }
 
+  protected getResponseError(response: Response): ApiResponseError<Response> {
+    return new ApiResponseError(response);
+  }
+
   public async request(
     method: RequestMethod,
     url: URL,
@@ -77,7 +81,7 @@ export class Client {
       return {
         succeeded: false,
         responseReceived: true,
-        responseError: new ApiResponseError(response),
+        responseError: this.getResponseError(response),
       };
     } catch (err) {
       // tslint:disable-next-line:no-console
